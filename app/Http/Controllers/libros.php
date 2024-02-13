@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Libro;
+use App\Models\Autor;
 
 class libros extends Controller
 {
@@ -12,20 +14,8 @@ class libros extends Controller
     public function index()
     {
 
-        $libros = array(
-            array("titulo" => "El juego de Ender",
-            "autor" => "Orson Scott Card"),
-            array("titulo" => "La tabla de Flandes",
-            "autor" => "Arturo Pérez Reverte"),
-            array("titulo" => "La historia interminable",
-            "autor" => "Michael Ende"),
-            array("titulo" => "El Señor de los Anillos",
-            "autor" => "J.R.R. Tolkien")
-            );
-
-            return view('libros', compact('libros'));
-
-        //
+        $libros = Libro::get();
+        return view('libros', compact('libros'));
     }
 
     /**
@@ -34,6 +24,8 @@ class libros extends Controller
     public function create()
     {
         //
+        $autores = Autor::get();
+        return view('createlibros', compact("autores"));
     }
 
     /**
@@ -41,21 +33,30 @@ class libros extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $libro = new Libro();
+        $libro->titulo = $request->get('titulo');
+        $libro->editorial = $request->get('editorial');
+        $libro->precio = $request->get('precio');
+        $libro->save();
+        return redirect()->route('libros.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id) {
-      
+    public function show($id)
+    {
     }
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
+
     {
-        //
+
+        $autores = Autor::get();
+        $libro = Libro::findOrFail($id);
+        return view('modificarLibros', compact('id', 'libro'));
     }
 
     /**
@@ -63,14 +64,23 @@ class libros extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $libroAModificar = Libro::findOrFail($id);
+        $libroAModificar->titulo = $request->get('titulo');
+        $libroAModificar->editorial = $request->get('editorial');
+        $libroAModificar->precio = $request->get('precio');
+        $libroAModificar->save();
+
+        return redirect()->route('libros.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy($id)
+    { {
+            Libro::findOrFail($id)->delete();
+            //$libros = Libro::get();
+            return redirect()->route('libros.index');
+        }
     }
 }

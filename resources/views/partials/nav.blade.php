@@ -7,13 +7,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('libros') }}">Lista de libros</a>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('libros.create') }}">Añadir Libro</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('autores.create') }}">Añadir Autor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('libros.index') }}">Lista de libros</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('autores.index') }}">Lista de autores</a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="{{ route('cortos') }}">Lista de cortos</a>
         </li>
-       
+        
+
+        
       </ul>
     </div>
   </div>
