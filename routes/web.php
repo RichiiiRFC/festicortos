@@ -35,6 +35,8 @@ use App\Http\Controllers\home;
 
 //LIBROS
 
+
+Route::get('/libros/listado', [libros::class, 'listado'])->name('libros.listado');
 Route::resource('libros', libros::class);
 
 //AUTORES

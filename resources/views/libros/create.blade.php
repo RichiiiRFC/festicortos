@@ -29,13 +29,11 @@ editorial">
 
             @endforeach
 
-
-
             </select>
         </div>
        
         </div>
-        <input type="submit" name="enviar" value="Enviar" class="btn btn-dark
+        <input type="submit" value="Enviar" class="btn btn-dark
 btn-block">
 </form>
 @endsection

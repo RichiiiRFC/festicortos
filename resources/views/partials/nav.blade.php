@@ -14,15 +14,20 @@
           <a class="nav-link" href="{{ route('autores.create') }}">Añadir Autor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('libros.index') }}">Lista de libros</a>
+          <a class="nav-link" href="{{ route('libros.index') }}">Mantenimiento de libros</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('autores.index') }}">Lista de autores</a>
+          <a class="nav-link" href="{{ route('autores.index') }}">Mantenimiento de autores</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{{ route('cortos') }}">Lista de cortos</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('libros.listado') }}">Lista de libros</a>
         </li>
         
 

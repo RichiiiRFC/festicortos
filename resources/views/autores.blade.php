@@ -1,7 +1,7 @@
 @extends('plantilla')
-@section('titulo', 'Lista de Autores')
+@section('titulo', 'Mantenimiento de Autores')
 @section('contenido')
-<h1>Listado de autores</h1>
+<h1>Mantenimiento de autores</h1>
 <table class="table table-bordered table-striped">
         <thead>
             <tr>

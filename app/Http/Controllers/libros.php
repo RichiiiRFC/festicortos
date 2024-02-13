@@ -15,7 +15,7 @@ class libros extends Controller
     {
 
         $libros = Libro::get();
-        return view('libros', compact('libros'));
+        return view('libros.index', compact('libros'));
     }
 
     /**
@@ -25,7 +25,7 @@ class libros extends Controller
     {
         //
         $autores = Autor::get();
-        return view('createlibros', compact("autores"));
+        return view('libros.create', compact("autores"));
     }
 
     /**
@@ -37,6 +37,7 @@ class libros extends Controller
         $libro->titulo = $request->get('titulo');
         $libro->editorial = $request->get('editorial');
         $libro->precio = $request->get('precio');
+        $libro->autor_id = $request->get('autor');
         $libro->save();
         return redirect()->route('libros.index');
     }
@@ -45,8 +46,22 @@ class libros extends Controller
      * Display the specified resource.
      */
     public function show($id)
+    
     {
+
+        $libros = Libro::get();
+        return view('detalles', compact('libros', 'id'));
+
+
     }
+
+    public function listado(){
+        $libros = Libro::get();
+        return view('libros.listado', compact('libros'));
+    }
+
+
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -56,7 +71,7 @@ class libros extends Controller
 
         $autores = Autor::get();
         $libro = Libro::findOrFail($id);
-        return view('modificarLibros', compact('id', 'libro'));
+        return view('libros.edit', compact('id', 'libro'));
     }
 
     /**
@@ -68,6 +83,7 @@ class libros extends Controller
         $libroAModificar->titulo = $request->get('titulo');
         $libroAModificar->editorial = $request->get('editorial');
         $libroAModificar->precio = $request->get('precio');
+        $libroAModificar->autor_id = $request->get('autor');
         $libroAModificar->save();
 
         return redirect()->route('libros.index');

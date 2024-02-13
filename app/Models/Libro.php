@@ -9,5 +9,8 @@ class Libro extends Model
 {
     use HasFactory;
     protected $table = 'libros';
+
+    public function autor(){
+        return $this->belongsTo(Autor::class);
+    }
 }
-                                               
