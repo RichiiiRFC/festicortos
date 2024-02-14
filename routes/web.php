@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\libros;
-use App\Http\Controllers\autores;
+use App\Http\Controllers\LibroController;
+use App\Http\Controllers\AutorController;
 use App\Http\Controllers\cortos;
 use App\Http\Controllers\home;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +39,15 @@ use App\Http\Controllers\home;
 //LIBROS
 
 
-Route::get('/libros/listado', [libros::class, 'listado'])->name('libros.listado');
-Route::resource('libros', libros::class);
+Route::get('/libros/listado', [LibroController::class, 'listado'])->name('libros.listado');
+Route::get('/libros/filtro', [LibroController::class, 'filtro'])->name('libros.filtro');
+Route::post('/libros/listadofiltro', [LibroController::class, 'resultado'])->name('libros.listadofiltro');
+Route::resource('libros', LibroController::class);
 
 //AUTORES
 
-Route::resource('autores', autores::class);
+Route::resource('autores', AutorController::class);
+
 
 
 // CORTOS (PRÁCTICA PASADA)

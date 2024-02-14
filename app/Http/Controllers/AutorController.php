@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Libro;
 use App\Models\Autor;
 
-class autores extends Controller
+class AutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class autores extends Controller
     public function index()
     {
          $autores = Autor::get();
-        return view('autores', compact('autores'));
+        return view('autores.index', compact('autores'));
     }
 
     /**
@@ -27,7 +27,7 @@ class autores extends Controller
     {
         //
         //$autores = Autor::get();
-        return view('createautores');
+        return view('autores.create');
     }
 
     /**

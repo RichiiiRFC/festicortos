@@ -29,9 +29,13 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('libros.listado') }}">Lista de libros</a>
         </li>
-        
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('libros.filtro') }}">Filtro de libros</a>
+        </li>
 
         
+
       </ul>
     </div>
   </div>

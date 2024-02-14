@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('libros', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('autor_id')->constrained(
-                table: 'autor', indexName: 'libros_autor_id'
+                table: 'autor', indexName: 'libros_autor_id',
             );
             $table->string('titulo');
             $table->string('editorial');

@@ -16,6 +16,8 @@
 
 </ul>
 
+{{ $libros->links() }}
+
 
 
 
